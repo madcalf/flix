@@ -1,0 +1,16 @@
+<%= form_with(model: [@movie, @review]) do |f| %>
+  <%= render 'shared/errors', object: @review %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment, rows: 3 %>
+
+  <%= f.label :Stars %>
+  <% Review::STARS.each do |value| %>
+    <span class="star">
+      <%= f.radio_button :stars, value %>
+      <%= label_tag value %>
+    </span>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

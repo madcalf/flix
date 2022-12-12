@@ -1,0 +1,23 @@
+<h2><%= @genre.name %></h2>
+<ul>
+  <% @genre.movies.each do |movie| %>
+    <li>
+      <%= link_to movie.title, movie %>
+    </li>
+  <% end %>
+</ul>
+
+<% if current_user_admin? %>
+  <section class="admin">
+    <%= link_to 'Edit', edit_genre_path, class: 'button' %>
+    <%=
+      link_to 'Delete',
+              @genre,
+              class: 'button',
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: 'Really delete this?'
+              }
+    %>
+  </section>
+<% end %>

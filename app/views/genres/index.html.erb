@@ -1,0 +1,14 @@
+<h2>Genres</h2>
+<ul class="genres">
+  <% Genre.order(:name).each do |genre| %>
+    <li>
+      <%= link_to genre.name, genre %>
+    </li>
+  <% end %>
+</ul>
+
+<% if (current_user_admin?) %>
+  <section class="admin">
+    <%= link_to 'Add Genre', new_genre_path, class: 'button' %>
+  </section>
+<% end %>
