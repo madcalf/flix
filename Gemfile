@@ -15,7 +15,7 @@ group :development, :test do
 end
 
 group :production do
-  "pg"
+  gem "pg"
 end
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -80,3 +80,4 @@ group :test do
 end
 
 gem "seed_dump", "~> 3.3" # , github: "madcalf/seed_dump", branch: "use-to-fs"
+gem "mini_racer"
